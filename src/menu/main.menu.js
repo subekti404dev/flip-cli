@@ -4,6 +4,7 @@ const inquirer = require("inquirer");
 const { getUser } = require("../services/user.service");
 const { transferMenu } = require("./transfer.menu")
 const { walletMenu } = require("./wallet.menu")
+const { historyMenu } = require("./history.menu")
 const { printTitle } = require("../helpers/title.helper");
 
 
@@ -47,7 +48,7 @@ const mainMenu = async () => {
          break;
 
       case "3":
-
+         historyMenu();
          break;
 
       default:
