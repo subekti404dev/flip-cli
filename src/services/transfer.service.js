@@ -26,7 +26,7 @@ const isBreak = async () => {
       const cfg = require(configPath);
       const http = createHTTP(cfg.token);
       const { data } = await http.get('/v1/site/is-istirahat');
-      if (data.istirahat) throw new Error("We are in break. Please try again later");
+      if (data.istirahat) throw new Error(`We are in break ( ${data?.istirahat?.keterangan} [ ${data?.istirahat?.start_time}-${data?.istirahat?.end_time} ] ). Please try again later`);
       return data.istirahat
    } catch (error) {
       const errMsg = error?.response?.data?.message || error?.response?.data?.errors?.[0]?.message || error?.response?.data || error?.message || error;
